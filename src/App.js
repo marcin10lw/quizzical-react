@@ -1,9 +1,9 @@
-import { Container } from "./Container/styled";
+import Container from "./Container/index";
 
 function App() {
   return (
     <Container>
-      asd
+      
     </Container>
   );
 }
