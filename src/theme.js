@@ -1,6 +1,6 @@
 export const theme = {
   colors: {
-    whiteLilac: "#F5F7FB",
+    white: "#F5F7FB",
     rhino: "#293264",
     kashmirBlue: "#4D5B9E",
     linkWater: "#D6DBF5",
