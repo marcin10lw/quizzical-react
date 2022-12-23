@@ -12,4 +12,11 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Inter", sans-serif;
   }
+
+  #root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
 `
