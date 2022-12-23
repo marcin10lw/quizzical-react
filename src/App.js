@@ -1,8 +1,10 @@
+import { Container } from "./Container/styled";
+
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Container>
+      asd
+    </Container>
   );
 }
 
