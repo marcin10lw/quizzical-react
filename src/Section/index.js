@@ -2,7 +2,11 @@ const Section = ({ question, answers }) => {
   return (
     <section>
       <h2>{question}</h2>
-      <div></div>
+      <div>
+        {answers.map((answer) => (
+          <button key={answer.id}>{answer.answer}</button>
+        ))}
+      </div>
     </section>
   );
 };
