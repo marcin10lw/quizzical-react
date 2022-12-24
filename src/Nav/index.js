@@ -1,9 +1,9 @@
 import { StyledNav } from "./styled";
 
-const Nav = () => (
+const Nav = ({ startQuiz }) => (
   <StyledNav>
     <h1>Quizzical</h1>
-    <button>Start quiz</button>
+    <button onClick={startQuiz}>Start quiz</button>
   </StyledNav>
 );
 
