@@ -1,5 +1,5 @@
 import { StyledMain, Button, Questions } from "./styled";
-import Section from "../Section";
+import Section from "./Section";
 
 const Main = ({ questions }) => (
   <StyledMain>
