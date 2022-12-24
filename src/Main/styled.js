@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledMain = styled.main`
+export const Main = styled.main`
   padding: 58px 0 36px;
   max-width: 75%;
   display: flex;
