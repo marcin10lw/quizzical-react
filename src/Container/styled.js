@@ -10,10 +10,10 @@ export const Container = styled.div`
   url(${`${process.env.PUBLIC_URL}/images/blob-top.png`}),
   url(${`${process.env.PUBLIC_URL}/images/blob-bottom.png`});
   background-repeat: no-repeat, no-repeat;
-  background-size: 35%, 25%;
+  background-size: 22%, 10%;
   background-position: top right, bottom left;
   background-color: ${({theme}) => theme.colors.white};
-  /* display: flex; */
+  display: flex;
   align-items: center;
   justify-content: center;
 `;

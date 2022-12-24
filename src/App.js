@@ -3,8 +3,7 @@ import axios from "axios";
 import { nanoid } from "nanoid";
 import { Container } from "./Container/styled";
 import Nav from "./Nav";
-import { Main } from "./Main/styled";
-import Section from "./Section";
+import Main from "./Main";
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -55,15 +54,7 @@ function App() {
   return (
     <Container>
       {/* <Nav /> */}
-      <Main>
-        {questions.map((question) => (
-          <Section
-            key={question.id}
-            question={question.question}
-            answers={question.answers}
-          />
-        ))}
-      </Main>
+      <Main questions={questions}/>
     </Container>
   );
 }

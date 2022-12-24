@@ -4,7 +4,7 @@ export const theme = {
     rhino: "#293264",
     kashmirBlue: "#4D5B9E",
     linkWater: "#D6DBF5",
-    gray: "#DBDEF0",
+    grey: "#DBDEF0",
     vistaBlue: "#94D7A2",
     pink: "#F8BCBC",
   },
