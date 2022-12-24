@@ -1,13 +1,22 @@
+import DOMPurify from "dompurify";
+import { StyledSection, Wrapper, Button } from "./styled";
+
 const Section = ({ question, answers }) => {
   return (
-    <section>
-      <h2>{question}</h2>
-      <div>
+    <StyledSection>
+      <h2
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(question) }}
+      ></h2>
+      <Wrapper>
         {answers.map((answer) => (
-          <button key={answer.id}>{answer.answer}</button>
+          <Button
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answer.answer) }}
+            key={answer.id}
+          >
+          </Button>
         ))}
-      </div>
-    </section>
+      </Wrapper>
+    </StyledSection>
   );
 };
 
