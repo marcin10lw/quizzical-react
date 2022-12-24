@@ -16,4 +16,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: ${({ theme }) => theme.mobile}px) {
+    height: 100vh;
+  }
 `;
