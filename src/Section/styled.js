@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section`
-  border-bottom: 1.3px solid ${({theme}) => theme.colors.grey};
+  border-bottom: 1.3px solid ${({ theme }) => theme.colors.grey};
   margin-bottom: 20px;
 
   h2 {
@@ -10,9 +10,9 @@ export const StyledSection = styled.section`
     font-family: "Karla", sans-serif;
     line-height: 27px;
     margin: 0;
-    color: ${({theme}) => theme.colors.rhino};
+    color: ${({ theme }) => theme.colors.rhino};
   }
-`
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -25,19 +25,27 @@ export const Wrapper = styled.div`
 `;
 
 export const Button = styled.button`
-  border: 1.9px solid ${({theme}) => theme.colors.kashmirBlue};
+  border: 1.9px solid ${({ theme }) => theme.colors.kashmirBlue};
   min-width: 95px;
   border-radius: 13px;
   padding: 6px 10px;
-  color: ${({theme}) => theme.colors.rhino};
+  color: ${({ theme }) => theme.colors.rhino};
   font-weight: 500;
   font-size: 15px;
+  word-break: break-word;
   cursor: pointer;
   background-color: transparent;
   transition: all 120ms ease-out;
 
   &:hover {
-    background-color: ${({theme}) => theme.colors.linkWater};
-    border-color: ${({theme}) => theme.colors.linkWater};
+    background-color: ${({ theme }) => theme.colors.linkWater};
+    border-color: ${({ theme }) => theme.colors.linkWater};
   }
+
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      background-color: ${({ theme }) => theme.colors.linkWater};
+      border-color: ${({ theme }) => theme.colors.linkWater};
+    `}
 `;

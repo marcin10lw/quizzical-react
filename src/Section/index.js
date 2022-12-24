@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 import { StyledSection, Wrapper, Button } from "./styled";
 
-const Section = ({ question, answers }) => {
+const Section = ({ questionId, question, answers, selectAnswer }) => {
   return (
     <StyledSection>
       <h2
@@ -10,8 +10,10 @@ const Section = ({ question, answers }) => {
       <Wrapper>
         {answers.map((answer) => (
           <Button
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answer.answer) }}
             key={answer.id}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answer.answer) }}
+            onClick={() => selectAnswer(questionId, answer.id)}
+            isSelected={answer.isSelected}
           >
           </Button>
         ))}
