@@ -18,6 +18,10 @@ export const Wrapper = styled.div`
   display: flex;
   gap: 17px;
   margin: 17px 0 22px;
+
+  @media (max-width: ${({ theme }) => theme.mobile}px) {
+    flex-direction: column;
+  }
 `;
 
 export const Button = styled.button`

@@ -8,4 +8,5 @@ export const theme = {
     vistaBlue: "#94D7A2",
     pink: "#F8BCBC",
   },
+  mobile: 767,
 };

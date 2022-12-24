@@ -12,12 +12,9 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Inter", sans-serif;
     padding: 20px;
-  }
 
-  #root {
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; */
+    @media (max-width: ${({ theme }) => theme.mobile}px) {
+    padding: 0;
+  }
   }
 `
