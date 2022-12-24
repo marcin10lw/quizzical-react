@@ -15,9 +15,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100vh; */
   }
 `

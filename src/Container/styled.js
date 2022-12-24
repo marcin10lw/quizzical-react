@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 900px;
+  max-width: 800px;
   min-height: 800px;
   width: 100%;
   margin: 0 auto;
-  box-shadow: 1px 1px 10px 1px #afafaf;
+  box-shadow: 0px 0px 10px 1px #afafaf;
   background-image:
   url(${`${process.env.PUBLIC_URL}/images/blob-top.png`}),
   url(${`${process.env.PUBLIC_URL}/images/blob-bottom.png`});

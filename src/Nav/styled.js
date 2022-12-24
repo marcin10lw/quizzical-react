@@ -8,14 +8,14 @@ export const StyledNav = styled.nav`
   
   h1 {
     font-family: "Karla", sans-serif;
-    font-size: 51px;
+    font-size: 45px;
     color: ${({theme}) => theme.colors.rhino}
   }
 
   button {
-    font-size: 26px;
-    padding: 26.5px 46px;
-    width: 315px;
+    font-size: 23px;
+    padding: 23px 40.6px;
+    width: 280px;
     border: none;
     border-radius: 24px;
     color: ${({theme}) => theme.colors.white};

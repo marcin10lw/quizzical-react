@@ -5,25 +5,29 @@ export const StyledSection = styled.section`
   margin-bottom: 20px;
 
   h2 {
+    font-size: 23px;
+    font-weight: 700;
+    font-family: "Karla", sans-serif;
+    line-height: 27px;
     margin: 0;
     color: ${({theme}) => theme.colors.rhino};
-    font-size: 26px;
   }
 `
 
 export const Wrapper = styled.div`
   display: flex;
-  gap: 20px;
-  margin: 21px 0 23px;
+  gap: 17px;
+  margin: 17px 0 22px;
 `;
 
 export const Button = styled.button`
   border: 1.9px solid ${({theme}) => theme.colors.kashmirBlue};
+  min-width: 95px;
   border-radius: 13px;
   padding: 6px 10px;
   color: ${({theme}) => theme.colors.rhino};
   font-weight: 500;
-  font-size: 16.8px;
+  font-size: 15px;
   cursor: pointer;
   background-color: transparent;
   transition: all 120ms ease-out;
