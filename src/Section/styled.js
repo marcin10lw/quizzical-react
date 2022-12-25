@@ -35,12 +35,6 @@ export const Button = styled.button`
   word-break: break-word;
   cursor: pointer;
   background-color: transparent;
-  transition: all 120ms ease-out;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.linkWater};
-    border-color: ${({ theme }) => theme.colors.linkWater};
-  }
 
   ${({ isSelected }) =>
     isSelected &&
