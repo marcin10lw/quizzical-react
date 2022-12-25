@@ -19,7 +19,7 @@ function App() {
             ...question,
             answers: question.answers.map((answer) => {
               return answer.id === answerId
-                ? { ...answer, isSelected: true }
+                ? { ...answer, isSelected: !answer.isSelected }
                 : { ...answer, isSelected: false };
             }),
           };
@@ -31,7 +31,7 @@ function App() {
   };
 
   return (
-    <Container>
+    <Container started={started}>
       {!started && <Nav startQuiz={startQuiz} />}
       {started && (
         <Main>
