@@ -25,11 +25,12 @@ export const Wrapper = styled.div`
 `;
 
 export const Button = styled.button`
+  color: ${({ theme }) => theme.colors.rhino};
   border: 1.9px solid ${({ theme }) => theme.colors.kashmirBlue};
+  border-width: 1.9px;
   min-width: 95px;
   border-radius: 13px;
   padding: 6px 10px;
-  color: ${({ theme }) => theme.colors.rhino};
   font-weight: 500;
   font-size: 15px;
   word-break: break-word;
@@ -41,5 +42,27 @@ export const Button = styled.button`
     css`
       background-color: ${({ theme }) => theme.colors.linkWater};
       border-color: ${({ theme }) => theme.colors.linkWater};
+    `}
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      border-color: #8f95b0;
+      color: #8f95b0;
+    `}
+
+  ${({ showIncorrect }) =>
+    showIncorrect &&
+    css`
+      background-color: ${({ theme }) => theme.colors.pink};
+      border-color: ${({ theme }) => theme.colors.pink};
+    `}
+    
+    ${({ showCorrect }) =>
+    showCorrect &&
+    css`
+      background-color: ${({ theme }) => theme.colors.vistaBlue};
+      border-color: ${({ theme }) => theme.colors.vistaBlue};
+      color: ${({ theme }) => theme.colors.rhino};
     `}
 `;
