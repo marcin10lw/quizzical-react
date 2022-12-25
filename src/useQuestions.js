@@ -46,5 +46,24 @@ export const useQuestions = () => {
       });
   }, []);
 
-  return [questions, setQuestions];
+  const selectAnswer = (questionId, answerId) => {
+    setQuestions((questions) =>
+      questions.map((question) => {
+        if (question.id === questionId) {
+          return {
+            ...question,
+            answers: question.answers.map((answer) => {
+              return answer.id === answerId
+                ? { ...answer, isSelected: !answer.isSelected }
+                : { ...answer, isSelected: false };
+            }),
+          };
+        }
+
+        return question;
+      })
+    );
+  };
+
+  return [questions, setQuestions, selectAnswer];
 };

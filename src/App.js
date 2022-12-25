@@ -7,29 +7,10 @@ import Section from "./Section";
 
 function App() {
   const [started, setStarted] = useState(false);
-  const [questions, setQuestions] = useQuestions();
+  const [questions, setQuestions, selectAnswer] = useQuestions();
   const [showAnswers, setShowAnswers] = useState(false);
 
   const startQuiz = () => setStarted(true);
-
-  const selectAnswer = (questionId, answerId) => {
-    setQuestions((questions) =>
-      questions.map((question) => {
-        if (question.id === questionId) {
-          return {
-            ...question,
-            answers: question.answers.map((answer) => {
-              return answer.id === answerId
-                ? { ...answer, isSelected: !answer.isSelected }
-                : { ...answer, isSelected: false };
-            }),
-          };
-        }
-
-        return question;
-      })
-    );
-  };
 
   return (
     <Container started={started}>
