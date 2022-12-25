@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useQuestions } from "./useQuestions";
 import { Container } from "./Container/styled";
 import Nav from "./Nav";
-import { Main, Button } from "./Main/styled";
+import Main from "./Main";
 import Section from "./Section";
 
 function App() {
   const [started, setStarted] = useState(false);
   const [questions, setQuestions] = useQuestions();
+  const [showAnswers, setShowAnswers] = useState(false);
 
   const startQuiz = () => setStarted(true);
 
@@ -34,7 +35,7 @@ function App() {
     <Container started={started}>
       {!started && <Nav startQuiz={startQuiz} />}
       {started && (
-        <Main>
+        <Main showAnswers={showAnswers} setShowAnswers={setShowAnswers}>
           <div>
             {questions.map((question) => (
               <Section
@@ -43,10 +44,10 @@ function App() {
                 question={question.question}
                 answers={question.answers}
                 selectAnswer={selectAnswer}
+                showAnswers={showAnswers}
               />
             ))}
           </div>
-          <Button>Check answers</Button>
         </Main>
       )}
     </Container>
