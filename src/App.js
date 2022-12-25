@@ -7,7 +7,7 @@ import Section from "./Section";
 
 function App() {
   const [started, setStarted] = useState(false);
-  const [questions, setQuestions, selectAnswer] = useQuestions();
+  const [questions, setQuestions, selectAnswer, getQuestions] = useQuestions();
   const [showAnswers, setShowAnswers] = useState(false);
 
   const startQuiz = () => setStarted(true);
@@ -16,7 +16,11 @@ function App() {
     <Container started={started}>
       {!started && <Nav startQuiz={startQuiz} />}
       {started && (
-        <Main showAnswers={showAnswers} setShowAnswers={setShowAnswers}>
+        <Main
+          showAnswers={showAnswers}
+          setShowAnswers={setShowAnswers}
+          getQuestions={getQuestions}
+        >
           <div>
             {questions.map((question) => (
               <Section

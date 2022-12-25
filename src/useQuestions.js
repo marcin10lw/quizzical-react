@@ -5,7 +5,7 @@ import { nanoid } from "nanoid";
 export const useQuestions = () => {
   const [questions, setQuestions] = useState([]);
 
-  useEffect(() => {
+  const getQuestions = () => {
     axios
       .get("https://opentdb.com/api.php?amount=5&category=9")
       .then((res) => {
@@ -44,7 +44,9 @@ export const useQuestions = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  };
+
+  useEffect(getQuestions, []);
 
   const selectAnswer = (questionId, answerId) => {
     setQuestions((questions) =>
@@ -65,5 +67,5 @@ export const useQuestions = () => {
     );
   };
 
-  return [questions, setQuestions, selectAnswer];
+  return [questions, setQuestions, selectAnswer, getQuestions];
 };
