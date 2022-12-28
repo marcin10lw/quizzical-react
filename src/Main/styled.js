@@ -14,6 +14,7 @@ export const Questions = styled.div``;
 export const Button = styled.button`
   font-size: 15px;
   font-weight: 600;
+  text-decoration: none;
   color: ${({theme}) => theme.colors.white};
   padding: 18px 30.5px;
   border: none;

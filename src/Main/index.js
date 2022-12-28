@@ -7,14 +7,14 @@ const Main = ({ children, showAnswers, setShowAnswers, getQuestions }) => {
   };
 
   return (
-    <StyledMain>
+    <StyledMain id="beginning">
       {children}
 
       {!showAnswers && (
         <Button onClick={() => setShowAnswers(true)}>Check answers</Button>
       )}
 
-      {showAnswers && <Button onClick={playAgain}>Play again</Button>}
+      {showAnswers && <Button as="a" href="#beginning" onClick={playAgain}>Play again</Button>}
     </StyledMain>
   );
 };
