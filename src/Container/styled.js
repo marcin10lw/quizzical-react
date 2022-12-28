@@ -21,6 +21,7 @@ export const Container = styled.div`
     css`
       @media (max-width: ${({ theme }) => theme.mobile}px) {
         height: 100vh;
+        min-height: auto;
       }
     `}
 `;

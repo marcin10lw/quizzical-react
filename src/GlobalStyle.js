@@ -11,11 +11,18 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Inter", sans-serif;
-    padding: 20px;
+    padding: 0 20px;
     
-
     @media (max-width: ${({ theme }) => theme.mobile}px) {
-    padding: 0;
+      padding: 0;
+    }
   }
+
+  #root {
+    @media (min-width: ${({ theme }) => theme.mobile}px) {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
   }
-`
+`;
