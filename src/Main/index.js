@@ -1,6 +1,12 @@
-import { StyledMain, Button } from "./styled";
+import { StyledMain, Button, Score, Flex } from "./styled";
 
-const Main = ({ children, showAnswers, setShowAnswers, getQuestions }) => {
+const Main = ({
+  children,
+  showAnswers,
+  setShowAnswers,
+  getQuestions,
+  score,
+}) => {
   const playAgain = () => {
     setShowAnswers(false);
     getQuestions();
@@ -14,7 +20,15 @@ const Main = ({ children, showAnswers, setShowAnswers, getQuestions }) => {
         <Button onClick={() => setShowAnswers(true)}>Check answers</Button>
       )}
 
-      {showAnswers && <Button as="a" href="#beginning" onClick={playAgain}>Play again</Button>}
+      <Flex>
+        {showAnswers && <Score>You scored {score}/5 correct answers</Score>}
+
+        {showAnswers && (
+          <Button playAgain as="a" href="#beginning" onClick={playAgain}>
+            Play again
+          </Button>
+        )}
+      </Flex>
     </StyledMain>
   );
 };

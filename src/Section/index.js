@@ -2,6 +2,7 @@ import DOMPurify from "dompurify";
 import { StyledSection, Wrapper, Button } from "./styled";
 
 const Section = ({ questionId, question, answers, selectAnswer, showAnswers }) => {
+   
   return (
     <StyledSection>
       <h2
@@ -12,11 +13,11 @@ const Section = ({ questionId, question, answers, selectAnswer, showAnswers }) =
           <Button
             key={answer.id}
             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answer.answer) }}
-            onClick={() => selectAnswer(questionId, answer.id)}
             isSelected={answer.isSelected}
             showCorrect={answer.isCorrect && showAnswers}
             showIncorrect={!answer.isCorrect && showAnswers && answer.isSelected}
             disabled={showAnswers}
+            onClick={() => selectAnswer(questionId, answer.id)}
           >
           </Button>
         ))}

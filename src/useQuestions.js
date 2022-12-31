@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 
 export const useQuestions = () => {
   const [questions, setQuestions] = useState([]);
+  const [score, setScore] = useState(0);
 
   const getQuestions = () => {
     axios
@@ -67,5 +68,18 @@ export const useQuestions = () => {
     );
   };
 
-  return [questions, setQuestions, selectAnswer, getQuestions];
+  useEffect(() => {
+    let correctAnswers = [];
+    questions.forEach((question) => {
+      question.answers.forEach((answer) => {
+        if (answer.isSelected && answer.isCorrect) {
+          correctAnswers.push(answer);
+        }
+      });
+    });
+
+    setScore(correctAnswers.length);
+  }, [questions]);
+
+  return [questions, setQuestions, selectAnswer, getQuestions, score];
 };

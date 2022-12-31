@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledMain = styled.main`
   padding: 36px 0;
@@ -15,15 +15,38 @@ export const Button = styled.button`
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  color: ${({theme}) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.white};
   padding: 18px 30.5px;
   border: none;
   border-radius: 16px;
-  background-color: ${({theme}) => theme.colors.kashmirBlue};
+  background-color: ${({ theme }) => theme.colors.kashmirBlue};
   cursor: pointer;
   transition: opacity 200ms;
+
+  ${({ playAgain }) =>
+    playAgain &&
+    css`
+      padding: 18px 40px;
+    `}
 
   &:hover {
     opacity: 0.9;
   }
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  @media (max-width: ${({theme}) => theme.mobile}px) {
+    flex-direction: column-reverse;
+  }
+`;
+
+export const Score = styled.span`
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.rhino};
 `;

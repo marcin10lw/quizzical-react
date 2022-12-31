@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuestions } from "./useQuestions";
 import { Container } from "./Container/styled";
 import Nav from "./Nav";
@@ -7,7 +7,7 @@ import Section from "./Section";
 
 function App() {
   const [started, setStarted] = useState(false);
-  const [questions, setQuestions, selectAnswer, getQuestions] = useQuestions();
+  const [questions, setQuestions, selectAnswer, getQuestions, score] = useQuestions();
   const [showAnswers, setShowAnswers] = useState(false);
 
   const startQuiz = () => setStarted(true);
@@ -20,6 +20,7 @@ function App() {
           showAnswers={showAnswers}
           setShowAnswers={setShowAnswers}
           getQuestions={getQuestions}
+          score={score}
         >
           <div>
             {questions.map((question) => (
