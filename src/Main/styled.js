@@ -41,6 +41,7 @@ export const Flex = styled.div`
 
   @media (max-width: ${({theme}) => theme.mobile}px) {
     flex-direction: column-reverse;
+    gap: 0;
   }
 `;
 
@@ -49,4 +50,8 @@ export const Score = styled.span`
   font-size: 20px;
   text-align: center;
   color: ${({ theme }) => theme.colors.rhino};
+
+  @media (max-width: ${({theme}) => theme.mobile}px) {
+    padding-top: 30px;
+  }
 `;

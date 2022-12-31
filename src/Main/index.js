@@ -17,11 +17,11 @@ const Main = ({
       {children}
 
       {!showAnswers && (
-        <Button onClick={() => setShowAnswers(true)}>Check answers</Button>
+        <Button as="a" href="#score" onClick={() => setShowAnswers(true)}>Check answers</Button>
       )}
 
       <Flex>
-        {showAnswers && <Score>You scored {score}/5 correct answers</Score>}
+        {showAnswers && <Score id="score">You scored {score}/5 correct answers</Score>}
 
         {showAnswers && (
           <Button playAgain as="a" href="#beginning" onClick={playAgain}>
