@@ -81,5 +81,5 @@ export const useQuestions = () => {
     setScore(correctAnswers.length);
   }, [questions]);
 
-  return [questions, setQuestions, selectAnswer, getQuestions, score];
+  return [questions, selectAnswer, getQuestions, score];
 };
