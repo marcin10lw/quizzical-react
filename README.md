@@ -4,7 +4,7 @@
 
 Today I have created a Quizzical site, where you can check your general knowledge.
 
-This project was one of many solo projects from [Scrimba](https://scrimba.com/learn/learnreact) React Course with Bob Ziroll. It was a great learning opportunity!.
+This project was one of many solo projects from [Scrimba](https://scrimba.com/learn/learnreact) React Course with Bob Ziroll. It was a great learning opportunity!
 
 ## Technologies used
 
