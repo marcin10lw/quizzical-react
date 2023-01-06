@@ -1,8 +1,44 @@
 # Marcin Augun - Quizzical
 
-**DEVELOPMENT IN PROGRESS**
+## Description
 
-**STAY TUNED FOR UPDATES!**
+Today I have created a Quizzical site, where you can check your general knowledge.
+
+This project was one of many solo projects from [Scrimba](https://scrimba.com/learn/learnreact) React Course with Bob Ziroll. It was a great learning opportunity!.
+
+## Technologies used
+
+    -REACT.JS
+    -CREATE-REACT-APP
+    -WEBPACK
+    -BABEL
+    -STYLED COMPONENTS
+    -CUSTOM HOOKS
+    -ES6+ FEATURES
+    -NORMALIZE.CSS
+    -AXIOS.JS
+
+## Features added independently
+
+    -CUSTOM HOOKS
+    -MOBILE DESIGN
+
+## Features to be added based on response status
+
+    -ERROR HANDLING
+    -LOADING PAGE
+
+## Page preview
+
+![](quizzical-react-preview.gif)
+
+## Mobile preview
+
+![](quizzical-react-mobile-preview.gif)
+
+## Check it out!
+
+[![](readme-icon.png)](https://marcin10lw.github.io/quizzical-react/)
 
 ## Getting Started with Create React App
 
