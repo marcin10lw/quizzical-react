@@ -21,8 +21,8 @@ export const Container = styled.div`
     border-radius: 0;
   }
 
-  ${({ started }) =>
-    !started &&
+  ${({ started, status }) =>
+    (!started || status) &&
     css`
       @media (max-width: ${({ theme }) => theme.mobile}px) {
         height: 100vh;

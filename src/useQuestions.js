@@ -12,7 +12,7 @@ export const useQuestions = () => {
       setStatus("pending");
       
       const response = await axios.get(
-        "https://opentdb.com/api.php?amount=5&category=9"
+        "https://opentdtegory=9"
       );
       const results = await response.data.results;
 

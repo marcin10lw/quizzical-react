@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  padding: 20px;
+`;
+
 export const Message = styled.p`
   font-size: 30px;
   color: ${({ theme }) => theme.colors.red};

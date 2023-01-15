@@ -17,8 +17,10 @@ function App() {
     setStarted(true);
   };
 
+  const statusInfo = status === "pending" || status === "error";
+
   return (
-    <Container started={started}>
+    <Container started={started} status={statusInfo}>
       {!started && <Nav startQuiz={startQuiz} />}
 
       {started && status === "pending" && <LoadingScreen />}
