@@ -5,6 +5,7 @@ import Nav from "./Nav";
 import Main from "./Main";
 import Section from "./Section";
 import LoadingScreen from "./LoadingScreen";
+import ErrorScreen from "./ErrorScreen";
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -19,7 +20,10 @@ function App() {
   return (
     <Container started={started}>
       {!started && <Nav startQuiz={startQuiz} />}
+
       {started && status === "pending" && <LoadingScreen />}
+      {status === "error" && <ErrorScreen />}
+
       {started && status === "success" && (
         <Main
           showAnswers={showAnswers}

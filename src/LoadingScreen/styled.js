@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
 
 export const Info = styled.p`
   font-size: 30px;
+  font-weight: 600;
   font-family: "Karla", sans-serif;
   color: ${({ theme }) => theme.colors.rhino};
 `;

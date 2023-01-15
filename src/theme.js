@@ -7,6 +7,7 @@ export const theme = {
     grey: "#DBDEF0",
     vistaBlue: "#94D7A2",
     pink: "#F8BCBC",
+    red: "#b62020",
   },
   mobile: 767,
 };

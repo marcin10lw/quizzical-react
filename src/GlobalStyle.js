@@ -20,12 +20,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    margin: 0;
     @media (min-width: ${({ theme }) => theme.mobile}px) {
       height: 100vh;
       display: flex;
       align-items: center;
-      margin: 20px 0;
     }
   }
 `;
