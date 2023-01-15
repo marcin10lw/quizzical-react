@@ -28,7 +28,7 @@ const Main = ({
         )}
 
         {showAnswers && (
-          <Button playAgain as="a" href="#beginning" onClick={playAgain}>
+          <Button playAgain onClick={playAgain}>
             Play again
           </Button>
         )}

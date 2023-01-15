@@ -23,7 +23,7 @@ This project was one of many solo projects from [Scrimba](https://scrimba.com/le
     -CUSTOM HOOKS
     -MOBILE DESIGN
 
-## Features to be added based on response status
+## Features added based on response status
 
     -ERROR HANDLING
     -LOADING PAGE
@@ -35,6 +35,10 @@ This project was one of many solo projects from [Scrimba](https://scrimba.com/le
 ## Mobile preview
 
 ![](quizzical-react-mobile-preview.gif)
+
+## Error preview
+
+![](quizzical-react-error-preview.png)
 
 ## Check it out!
 
