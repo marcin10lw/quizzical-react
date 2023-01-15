@@ -5,49 +5,52 @@ import { nanoid } from "nanoid";
 export const useQuestions = () => {
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
+  const [status, setStatus] = useState("pending");
 
-  const getQuestions = () => {
-    axios
-      .get("https://opentdb.com/api.php?amount=5&category=9")
-      .then((res) => {
-        const results = res.data.results;
+  const getQuestions = async () => {
+    try {
+      setStatus("pending");
+      
+      const response = await axios.get(
+        "https://opentdb.com/api.php?amount=5&category=9"
+      );
+      const results = await response.data.results;
 
-        setQuestions(
-          results.map((result) => {
-            const correctAnswer = {
-              answer: result.correct_answer,
-              id: nanoid(),
-              isCorrect: true,
-              isSelected: false,
-            };
+      setQuestions(
+        results.map((result) => {
+          const correctAnswer = {
+            answer: result.correct_answer,
+            id: nanoid(),
+            isCorrect: true,
+            isSelected: false,
+          };
 
-            const incorrectAnswers = result.incorrect_answers.map(
-              (incorrectAnswer) => {
-                return {
-                  answer: incorrectAnswer,
-                  id: nanoid(),
-                  isCorrect: false,
-                  isSelected: false,
-                };
-              }
-            );
+          const incorrectAnswers = result.incorrect_answers.map(
+            (incorrectAnswer) => {
+              return {
+                answer: incorrectAnswer,
+                id: nanoid(),
+                isCorrect: false,
+                isSelected: false,
+              };
+            }
+          );
 
-            const allAnswers = [correctAnswer, ...incorrectAnswers];
+          const allAnswers = [correctAnswer, ...incorrectAnswers];
 
-            return {
-              question: result.question,
-              id: nanoid(),
-              answers: allAnswers.sort((a, b) => 0.5 - Math.random()),
-            };
-          })
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+          return {
+            question: result.question,
+            id: nanoid(),
+            answers: allAnswers.sort((a, b) => 0.5 - Math.random()),
+          };
+        })
+      );
+
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+    }
   };
-
-  useEffect(getQuestions, []);
 
   const selectAnswer = (questionId, answerId) => {
     setQuestions((questions) =>
@@ -80,6 +83,6 @@ export const useQuestions = () => {
 
     setScore(correctAnswers.length);
   }, [questions]);
-
-  return [questions, selectAnswer, getQuestions, score];
+  
+  return [questions, selectAnswer, getQuestions, score, status];
 };
