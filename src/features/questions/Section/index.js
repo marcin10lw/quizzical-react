@@ -1,8 +1,11 @@
 import DOMPurify from "dompurify";
+import { useSelector } from "react-redux";
+import { SelectQuestionsState } from "../questionsSlice";
 import { StyledSection, Wrapper, Button } from "./styled";
 
-const Section = ({ questionId, question, answers, selectAnswer, showAnswers }) => {
-   
+const Section = ({ questionId, question, answers, selectAnswer }) => {
+  const { showAnswers } = useSelector(SelectQuestionsState);
+
   return (
     <StyledSection>
       <h2
@@ -12,14 +15,17 @@ const Section = ({ questionId, question, answers, selectAnswer, showAnswers }) =
         {answers.map((answer) => (
           <Button
             key={answer.id}
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answer.answer) }}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(answer.answer),
+            }}
             isSelected={answer.isSelected}
             showCorrect={answer.isCorrect && showAnswers}
-            showIncorrect={!answer.isCorrect && showAnswers && answer.isSelected}
+            showIncorrect={
+              !answer.isCorrect && showAnswers && answer.isSelected
+            }
             disabled={showAnswers}
             onClick={() => selectAnswer(questionId, answer.id)}
-          >
-          </Button>
+          ></Button>
         ))}
       </Wrapper>
     </StyledSection>
