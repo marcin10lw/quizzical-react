@@ -1,23 +1,40 @@
-import { StyledMain, Button, Score, Flex } from "./styled";
-
-const Main = ({
-  children,
-  showAnswers,
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchQuestions,
+  SelectQuestionsState,
   setShowAnswers,
-  getQuestions,
-  score,
-}) => {
+} from "../questionsSlice";
+import { StyledMain, Button, Score, Flex } from "./styled";
+import Section from "../Section";
+
+const Main = ({ children, score }) => {
+  const { showAnswers, questions } = useSelector(SelectQuestionsState);
+  const dispatch = useDispatch();
+
   const playAgain = () => {
-    setShowAnswers(false);
-    getQuestions();
+    dispatch(setShowAnswers(false));
+    dispatch(fetchQuestions());
   };
+
+  const renderedQuestions = questions.map((question) => (
+    <Section
+      key={question.id}
+      questionId={question.id}
+      question={question.question}
+      answers={question.answers}
+    />
+  ));
 
   return (
     <StyledMain id="beginning">
-      {children}
+      <div>{renderedQuestions}</div>
 
       {!showAnswers && (
-        <Button as="a" href="#score" onClick={() => setShowAnswers(true)}>
+        <Button
+          as="a"
+          href="#score"
+          onClick={() => dispatch(setShowAnswers(true))}
+        >
           Check answers
         </Button>
       )}

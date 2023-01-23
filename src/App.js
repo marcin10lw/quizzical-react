@@ -6,47 +6,23 @@ import Main from "./features/questions/Main";
 import Section from "./features/questions/Section";
 import LoadingScreen from "./features/questions/LoadingScreen";
 import ErrorScreen from "./features/questions/ErrorScreen";
+import { useSelector } from "react-redux";
+import { SelectQuestionsState } from "./features/questions/questionsSlice";
 
 function App() {
-  const [started, setStarted] = useState(false);
-  const [questions, selectAnswer, getQuestions, score, status] = useQuestions();
-  const [showAnswers, setShowAnswers] = useState(false);
-
-  const startQuiz = () => {
-    getQuestions();
-    setStarted(true);
-  };
+  const { started, status } = useSelector(SelectQuestionsState);
+  const [score] = useQuestions();
 
   const statusInfo = status === "pending" || status === "error";
 
   return (
     <Container started={started} status={statusInfo}>
-      {!started && <Nav startQuiz={startQuiz} />}
+      {!started && <Nav />}
 
       {started && status === "pending" && <LoadingScreen />}
       {status === "error" && <ErrorScreen />}
 
-      {started && status === "success" && (
-        <Main
-          showAnswers={showAnswers}
-          setShowAnswers={setShowAnswers}
-          getQuestions={getQuestions}
-          score={score}
-        >
-          <div>
-            {questions.map((question) => (
-              <Section
-                key={question.id}
-                questionId={question.id}
-                question={question.question}
-                answers={question.answers}
-                selectAnswer={selectAnswer}
-                showAnswers={showAnswers}
-              />
-            ))}
-          </div>
-        </Main>
-      )}
+      {started && status === "success" && <Main score={score} />}
     </Container>
   );
 }
