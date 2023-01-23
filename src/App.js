@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useQuestions } from "./useQuestions";
 import { Container } from "./Container/styled";
-import Nav from "./Nav";
-import Main from "./Main";
-import Section from "./Section";
-import LoadingScreen from "./LoadingScreen";
-import ErrorScreen from "./ErrorScreen";
+import Nav from "./features/questions/Nav";
+import Main from "./features/questions/Main";
+import Section from "./features/questions/Section";
+import LoadingScreen from "./features/questions/LoadingScreen";
+import ErrorScreen from "./features/questions/ErrorScreen";
 
 function App() {
   const [started, setStarted] = useState(false);
