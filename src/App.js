@@ -1,15 +1,23 @@
-import { useQuestions } from "./useQuestions";
+import { useEffect } from "react";
 import { Container } from "./Container/styled";
 import Nav from "./features/questions/Nav";
 import Main from "./features/questions/Main";
 import LoadingScreen from "./features/questions/LoadingScreen";
 import ErrorScreen from "./features/questions/ErrorScreen";
-import { useSelector } from "react-redux";
-import { SelectQuestionsState } from "./features/questions/questionsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  SelectQuestionsState,
+  setScore,
+} from "./features/questions/questionsSlice";
 
 function App() {
   const { started, status } = useSelector(SelectQuestionsState);
-  const [score] = useQuestions();
+  const { score, questions } = useSelector(SelectQuestionsState);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setScore());
+  }, [questions]);
 
   const statusInfo = status === "pending" || status === "error";
 

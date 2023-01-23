@@ -34,6 +34,18 @@ const questionsSlice = createSlice({
       questions[questionIndex].answers[answerIndex].isSelected =
         !questions[questionIndex].answers[answerIndex].isSelected;
     },
+    setScore: (state) => {
+      let correctAnswers = [];
+      state.questions.forEach((question) => {
+        question.answers.forEach((answer) => {
+          if (answer.isSelected && answer.isCorrect) {
+            correctAnswers.push(answer);
+          }
+        });
+      });
+
+      state.score = correctAnswers.length;
+    },
   },
 });
 
@@ -44,6 +56,7 @@ export const {
   startQuiz,
   setShowAnswers,
   selectAnswer,
+  setScore,
 } = questionsSlice.actions;
 export const SelectQuestionsState = (state) => state.questions;
 export default questionsSlice.reducer;

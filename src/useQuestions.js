@@ -71,18 +71,7 @@ export const useQuestions = () => {
     );
   };
 
-  useEffect(() => {
-    let correctAnswers = [];
-    questions.forEach((question) => {
-      question.answers.forEach((answer) => {
-        if (answer.isSelected && answer.isCorrect) {
-          correctAnswers.push(answer);
-        }
-      });
-    });
-
-    setScore(correctAnswers.length);
-  }, [questions]);
   
-  return [questions, selectAnswer, getQuestions, score, status];
+  
+  // return [questions, selectAnswer, getQuestions, score, status];
 };
