@@ -23,6 +23,17 @@ const questionsSlice = createSlice({
     setShowAnswers: (state, action) => {
       state.showAnswers = action.payload;
     },
+    selectAnswer: ({ questions }, action) => {
+      const { questionId, answerId } = action.payload;
+      const questionIndex = questions.findIndex(
+        (question) => question.id === questionId
+      );
+      const answerIndex = questions[questionIndex].answers.findIndex(
+        (answer) => answer.id === answerId
+      );
+      questions[questionIndex].answers[answerIndex].isSelected =
+        !questions[questionIndex].answers[answerIndex].isSelected;
+    },
   },
 });
 
@@ -32,6 +43,7 @@ export const {
   setStatus,
   startQuiz,
   setShowAnswers,
+  selectAnswer,
 } = questionsSlice.actions;
 export const SelectQuestionsState = (state) => state.questions;
 export default questionsSlice.reducer;

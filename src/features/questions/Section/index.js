@@ -1,10 +1,11 @@
 import DOMPurify from "dompurify";
-import { useSelector } from "react-redux";
-import { SelectQuestionsState } from "../questionsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAnswer, SelectQuestionsState } from "../questionsSlice";
 import { StyledSection, Wrapper, Button } from "./styled";
 
-const Section = ({ questionId, question, answers, selectAnswer }) => {
+const Section = ({ questionId, question, answers }) => {
   const { showAnswers } = useSelector(SelectQuestionsState);
+  const dispatch = useDispatch();
 
   return (
     <StyledSection>
@@ -24,7 +25,7 @@ const Section = ({ questionId, question, answers, selectAnswer }) => {
               !answer.isCorrect && showAnswers && answer.isSelected
             }
             disabled={showAnswers}
-            onClick={() => selectAnswer(questionId, answer.id)}
+            onClick={() => dispatch(selectAnswer({questionId, answerId: answer.id}))}
           ></Button>
         ))}
       </Wrapper>

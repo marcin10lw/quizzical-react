@@ -7,10 +7,10 @@ import {
 import { StyledMain, Button, Score, Flex } from "./styled";
 import Section from "../Section";
 
-const Main = ({ children, score }) => {
+const Main = ({ score }) => {
   const { showAnswers, questions } = useSelector(SelectQuestionsState);
   const dispatch = useDispatch();
-
+console.log(questions)
   const playAgain = () => {
     dispatch(setShowAnswers(false));
     dispatch(fetchQuestions());
