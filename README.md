@@ -13,7 +13,8 @@ This project was one of many solo projects from [Scrimba](https://scrimba.com/le
     -WEBPACK
     -BABEL
     -STYLED COMPONENTS
-    -CUSTOM HOOKS
+    -REDUX TOOLKIT
+    -REDUX SAGA
     -ES6+ FEATURES
     -NORMALIZE.CSS
     -AXIOS.JS
