@@ -28,11 +28,15 @@ const questionsSlice = createSlice({
       const questionIndex = questions.findIndex(
         (question) => question.id === questionId
       );
-      const answerIndex = questions[questionIndex].answers.findIndex(
-        (answer) => answer.id === answerId
-      );
-      questions[questionIndex].answers[answerIndex].isSelected =
-        !questions[questionIndex].answers[answerIndex].isSelected;
+      
+      const answers = questions[questionIndex].answers;
+      answers.forEach((answer) => {
+        if (answer.id === answerId) {
+          answer.isSelected = !answer.isSelected;
+        } else {
+          answer.isSelected = false;
+        }
+      });
     },
     setScore: (state) => {
       let correctAnswers = [];
