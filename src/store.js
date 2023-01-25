@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import questionsReducer from "./features/questions/questionsSlice";
 import createSagaMiddleware from "@redux-saga/core";
-import { watchFetchQuestions } from "./features/questions/questionsSaga";
+import rootSaga from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,4 +12,4 @@ export const store = configureStore({
   middleware: [sagaMiddleware],
 });
 
-sagaMiddleware.run(watchFetchQuestions);
+sagaMiddleware.run(rootSaga);
