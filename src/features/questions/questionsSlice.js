@@ -28,7 +28,7 @@ const questionsSlice = createSlice({
       const questionIndex = questions.findIndex(
         (question) => question.id === questionId
       );
-      
+
       const answers = questions[questionIndex].answers;
       answers.forEach((answer) => {
         if (answer.id === answerId) {

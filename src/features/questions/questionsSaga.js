@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import { getQuestions } from "./getQuestions";
 import { fetchQuestions, setQuestions, setStatus } from "./questionsSlice";
 
@@ -14,5 +14,5 @@ function* fetchQuestionsHandler() {
 }
 
 export function* watchFetchQuestions() {
-  yield takeEvery(fetchQuestions.type, fetchQuestionsHandler);
+  yield takeLatest(fetchQuestions.type, fetchQuestionsHandler);
 }
