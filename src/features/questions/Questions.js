@@ -3,12 +3,19 @@ import Nav from "./Nav";
 import Main from "./Main";
 import LoadingScreen from "./LoadingScreen";
 import ErrorScreen from "./ErrorScreen";
-import { useSelector } from "react-redux";
-import { SelectQuestionsState } from "./questionsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { SelectQuestionsState, setScore } from "./questionsSlice";
+import { useEffect } from "react";
 
 function App() {
   const { started, status } = useSelector(SelectQuestionsState);
-  const { score } = useSelector(SelectQuestionsState);
+  const { score, questions } = useSelector(SelectQuestionsState);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setScore());
+  }, [questions]);
 
   const statusInfo = status === "pending" || status === "error";
 
