@@ -21,7 +21,8 @@ This project was one of many solo projects from [Scrimba](https://scrimba.com/le
 
 ## Features added independently
 
-    -CUSTOM HOOKS
+    -REDUX TOOLKIT
+    -REDUX SAGA
     -MOBILE DESIGN
 
 ## Features added based on response status
