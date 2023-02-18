@@ -6,6 +6,10 @@ Today I have created a Quizzical site, where you can check your general knowledg
 
 This project was one of many solo projects from [Scrimba](https://scrimba.com/learn/learnreact) React Course with Bob Ziroll. It was a great learning opportunity!
 
+## Check out the Demo!
+
+[![](readme-icon.png)](https://marcin10lw.github.io/quizzical-react/)
+
 ## Technologies used
 
     -REACT.JS
@@ -41,10 +45,6 @@ This project was one of many solo projects from [Scrimba](https://scrimba.com/le
 ## Error preview
 
 ![](quizzical-react-error-preview.png)
-
-## Check it out!
-
-[![](readme-icon.png)](https://marcin10lw.github.io/quizzical-react/)
 
 ## Getting Started with Create React App
 
