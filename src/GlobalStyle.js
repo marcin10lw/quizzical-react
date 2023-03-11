@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Inter", sans-serif;
-    padding: 0 20px;
+    padding: 15px;
     
     @media (max-width: ${({ theme }) => theme.mobile}px) {
       padding: 0;
