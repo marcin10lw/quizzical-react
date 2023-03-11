@@ -1,6 +1,19 @@
 import { useDispatch } from "react-redux";
-import { fetchQuestions, setAmount, setQuizStarted } from "../questionsSlice";
-import { StyledNav, Header, StartButton, Select, Text } from "./styled";
+import {
+  fetchQuestions,
+  setAmount,
+  setCategoryId,
+  setQuizStarted,
+} from "../questionsSlice";
+import {
+  StyledNav,
+  Header,
+  StartButton,
+  Select,
+  Text,
+  Paragraph,
+} from "./styled";
+import categoriesData from "./categories.json";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -10,9 +23,15 @@ const Nav = () => {
     questionsAmounts.push(i);
   }
 
+  const { categories } = categoriesData;
+
   const onAmountChange = ({ target }) => {
-    console.log(target.value);
     dispatch(setAmount(target.value));
+  };
+
+  const onCategoryChange = ({ target }) => {
+    console.log(target.value);
+    dispatch(setCategoryId(target.value));
   };
 
   const onStartClick = () => {
@@ -23,7 +42,7 @@ const Nav = () => {
   return (
     <StyledNav>
       <Header>Quizzical</Header>
-      <p>
+      <Paragraph>
         <label>
           <Text>Questions amount</Text>
           <Select onChange={onAmountChange}>
@@ -32,7 +51,19 @@ const Nav = () => {
             ))}
           </Select>
         </label>
-      </p>
+      </Paragraph>
+      <Paragraph>
+        <label>
+          <Text>Category</Text>
+          <Select onChange={onCategoryChange}>
+            {categories.map(({ id, name }) => (
+              <option key={id} value={id}>
+                {name}
+              </option>
+            ))}
+          </Select>
+        </label>
+      </Paragraph>
       <StartButton onClick={onStartClick}>Start quiz</StartButton>
     </StyledNav>
   );

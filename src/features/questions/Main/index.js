@@ -9,15 +9,23 @@ import {
 } from "../questionsSlice";
 import { StyledMain, Button, Score, Flex } from "./styled";
 import Section from "../Section";
+import { useRef } from "react";
 
 const Main = ({ score }) => {
+  const mainRef = useRef(null);
+
   const { showAnswers } = useSelector(SelectQuestionsState);
   const questions = useSelector(SelectQuestions);
   const questionsAmount = useSelector(SelectAmount);
 
   const dispatch = useDispatch();
 
+  const onCheckAnswers = () => {
+    dispatch(setShowAnswers(true));
+  };
+
   const playAgain = () => {
+    mainRef.current.scrollIntoView();
     dispatch(setShowAnswers(false));
     dispatch(fetchQuestions());
   };
@@ -37,15 +45,11 @@ const Main = ({ score }) => {
   ));
 
   return (
-    <StyledMain id="beginning">
+    <StyledMain ref={mainRef}>
       <div>{renderedQuestions}</div>
 
       {!showAnswers && (
-        <Button
-          as="a"
-          href="#score"
-          onClick={() => dispatch(setShowAnswers(true))}
-        >
+        <Button as="a" href="#score" onClick={onCheckAnswers}>
           Check answers
         </Button>
       )}
