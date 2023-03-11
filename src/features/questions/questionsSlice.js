@@ -6,6 +6,7 @@ const questionsSlice = createSlice({
     questionsData: {
       questions: [],
       amount: 5,
+      categoryId: 9,
     },
     status: "",
     score: 0,
@@ -20,6 +21,9 @@ const questionsSlice = createSlice({
     },
     setAmount: ({ questionsData }, { payload: amount }) => {
       questionsData.amount = amount;
+    },
+    setCategoryId: ({ questionsData }, { payload: categoryId }) => {
+      questionsData.categoryId = categoryId;
     },
     setStatus: (state, action) => {
       state.status = action.payload;
@@ -64,6 +68,7 @@ export const {
   fetchQuestions,
   setQuestions,
   setAmount,
+  setCategoryId,
   setStatus,
   setQuizStarted,
   setShowAnswers,
@@ -76,5 +81,7 @@ export const SelectQuestions = (state) =>
   SelectQuestionsState(state).questionsData.questions;
 export const SelectAmount = (state) =>
   SelectQuestionsState(state).questionsData.amount;
+export const SelectCategoryId = (state) =>
+  SelectQuestionsState(state).questionsData.categoryId;
 
 export default questionsSlice.reducer;
