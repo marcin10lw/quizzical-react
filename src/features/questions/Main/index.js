@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchQuestions,
+  SelectAmount,
+  SelectQuestions,
   SelectQuestionsState,
   setShowAnswers,
 } from "../questionsSlice";
@@ -8,7 +10,10 @@ import { StyledMain, Button, Score, Flex } from "./styled";
 import Section from "../Section";
 
 const Main = ({ score }) => {
-  const { showAnswers, questions } = useSelector(SelectQuestionsState);
+  const { showAnswers } = useSelector(SelectQuestionsState);
+  const questions = useSelector(SelectQuestions);
+  const questionsAmount = useSelector(SelectAmount);
+
   const dispatch = useDispatch();
 
   const playAgain = () => {
@@ -41,7 +46,9 @@ const Main = ({ score }) => {
 
       <Flex>
         {showAnswers && (
-          <Score id="score">You scored {score}/5 correct answers</Score>
+          <Score id="score">
+            You scored {score}/{questionsAmount} correct answers
+          </Score>
         )}
 
         {showAnswers && (
