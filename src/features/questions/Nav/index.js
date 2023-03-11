@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchQuestions, setAmount, startQuiz } from "../questionsSlice";
-import { StyledNav } from "./styled";
+import { StyledNav, Header, StartButton, Select, Text } from "./styled";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -24,16 +23,18 @@ const Nav = () => {
 
   return (
     <StyledNav>
-      <h1>Quizzical</h1>
-      <label>
-        Questions amount
-        <select onChange={onAmountChange}>
-          {questionsAmounts.map((amount) => (
-            <option key={amount}>{amount}</option>
-          ))}
-        </select>
-      </label>
-      <button onClick={onStartClick}>Start quiz</button>
+      <Header>Quizzical</Header>
+      <p>
+        <label>
+          <Text>Questions amount</Text>
+          <Select onChange={onAmountChange}>
+            {questionsAmounts.map((amount) => (
+              <option key={amount}>{amount}</option>
+            ))}
+          </Select>
+        </label>
+      </p>
+      <StartButton onClick={onStartClick}>Start quiz</StartButton>
     </StyledNav>
   );
 };
