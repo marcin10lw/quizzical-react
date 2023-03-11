@@ -9,8 +9,6 @@ export const StyledMain = styled.main`
   gap: 12px;
 `;
 
-export const Questions = styled.div``;
-
 export const Button = styled.button`
   font-size: 15px;
   font-weight: 600;
@@ -21,7 +19,7 @@ export const Button = styled.button`
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.kashmirBlue};
   cursor: pointer;
-  transition: opacity 200ms;
+  transition: opacity 150ms ease-in-out;
 
   ${({ playAgain }) =>
     playAgain &&
@@ -39,7 +37,7 @@ export const Flex = styled.div`
   align-items: center;
   gap: 30px;
 
-  @media (max-width: ${({theme}) => theme.mobile}px) {
+  @media (max-width: ${({ theme }) => theme.mobile}px) {
     flex-direction: column-reverse;
     gap: 0;
   }
@@ -51,7 +49,7 @@ export const Score = styled.span`
   text-align: center;
   color: ${({ theme }) => theme.colors.rhino};
 
-  @media (max-width: ${({theme}) => theme.mobile}px) {
+  @media (max-width: ${({ theme }) => theme.mobile}px) {
     padding-top: 30px;
   }
 `;

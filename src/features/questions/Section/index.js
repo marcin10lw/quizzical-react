@@ -9,9 +9,7 @@ const Section = ({ questionId, question, answers }) => {
 
   return (
     <StyledSection>
-      <h2
-        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(question) }}
-      ></h2>
+      <h2 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(question) }} />
       <Wrapper>
         {answers.map((answer) => (
           <Button
@@ -25,7 +23,9 @@ const Section = ({ questionId, question, answers }) => {
               !answer.isCorrect && showAnswers && answer.isSelected
             }
             disabled={showAnswers}
-            onClick={() => dispatch(selectAnswer({questionId, answerId: answer.id}))}
+            onClick={() =>
+              dispatch(selectAnswer({ questionId, answerId: answer.id }))
+            }
           ></Button>
         ))}
       </Wrapper>
