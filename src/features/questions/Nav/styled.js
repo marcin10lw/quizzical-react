@@ -4,6 +4,7 @@ export const StyledNav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 280px;
 `;
 
 export const Header = styled.h1`
@@ -14,6 +15,7 @@ export const Header = styled.h1`
 
 export const StartButton = styled.button`
   font-size: 23px;
+  margin-top: 20px;
   padding: 23px 40.6px;
   width: 280px;
   border: none;
@@ -29,10 +31,15 @@ export const StartButton = styled.button`
 `;
 
 export const Text = styled.span`
+  display: inline-block;
   font-weight: 500;
   margin-bottom: 4px;
-  display: inline-block;
   color: ${({ theme }) => theme.colors.rhino};
+`;
+
+export const Paragraph = styled.p`
+  margin: 8px 0;
+  width: 100%;
 `;
 
 export const Select = styled.select`
