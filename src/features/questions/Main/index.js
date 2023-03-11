@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchQuestions,
+  setQuizStarted,
   SelectAmount,
   SelectQuestions,
   SelectQuestionsState,
@@ -19,6 +20,11 @@ const Main = ({ score }) => {
   const playAgain = () => {
     dispatch(setShowAnswers(false));
     dispatch(fetchQuestions());
+  };
+
+  const goBackToSettings = () => {
+    dispatch(setShowAnswers(false));
+    dispatch(setQuizStarted(false));
   };
 
   const renderedQuestions = questions.map((question) => (
@@ -52,9 +58,14 @@ const Main = ({ score }) => {
         )}
 
         {showAnswers && (
-          <Button playAgain onClick={playAgain}>
-            Play again
-          </Button>
+          <>
+            <Button playAgain onClick={playAgain}>
+              Play again with same settings
+            </Button>
+            <Button playAgain onClick={goBackToSettings}>
+              Go back to settings
+            </Button>
+          </>
         )}
       </Flex>
     </StyledMain>

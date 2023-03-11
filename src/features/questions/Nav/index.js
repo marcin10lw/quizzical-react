@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { fetchQuestions, setAmount, startQuiz } from "../questionsSlice";
+import { fetchQuestions, setAmount, setQuizStarted } from "../questionsSlice";
 import { StyledNav, Header, StartButton, Select, Text } from "./styled";
 
 const Nav = () => {
@@ -16,7 +16,7 @@ const Nav = () => {
   };
 
   const onStartClick = () => {
-    dispatch(startQuiz());
+    dispatch(setQuizStarted(true));
     dispatch(fetchQuestions());
   };
 

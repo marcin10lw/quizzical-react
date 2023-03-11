@@ -1,4 +1,4 @@
-import { Container } from "../../Container/styled";
+import { Container } from "./Container/styled";
 import Nav from "./Nav";
 import Main from "./Main";
 import LoadingScreen from "./LoadingScreen";

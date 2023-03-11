@@ -24,8 +24,8 @@ const questionsSlice = createSlice({
     setStatus: (state, action) => {
       state.status = action.payload;
     },
-    startQuiz: (state) => {
-      state.started = true;
+    setQuizStarted: (state, { payload }) => {
+      state.started = payload;
     },
     setShowAnswers: (state, action) => {
       state.showAnswers = action.payload;
@@ -65,7 +65,7 @@ export const {
   setQuestions,
   setAmount,
   setStatus,
-  startQuiz,
+  setQuizStarted,
   setShowAnswers,
   selectAnswer,
   setScore,

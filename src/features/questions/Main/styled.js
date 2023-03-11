@@ -14,6 +14,7 @@ export const Button = styled.button`
   font-weight: 600;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
+
   padding: 18px 30.5px;
   border: none;
   border-radius: 16px;
@@ -24,6 +25,7 @@ export const Button = styled.button`
   ${({ playAgain }) =>
     playAgain &&
     css`
+      width: 100%;
       padding: 18px 40px;
     `}
 
@@ -34,12 +36,12 @@ export const Button = styled.button`
 
 export const Flex = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 
   @media (max-width: ${({ theme }) => theme.mobile}px) {
-    flex-direction: column-reverse;
-    gap: 0;
+    gap: 10px;
   }
 `;
 
