@@ -47,7 +47,7 @@ const Main = ({ score }) => {
       <Flex>
         {showAnswers && (
           <Score id="score">
-            You scored {score}/{questionsAmount} correct answers
+            You scored {score}/{questionsAmount} correct answers 🚀
           </Score>
         )}
 

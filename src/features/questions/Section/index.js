@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAnswer, SelectQuestionsState } from "../questionsSlice";
-import { StyledSection, Wrapper, Button } from "./styled";
+import { StyledSection, SectionHeader, Wrapper, Button } from "./styled";
 
 const Section = ({ questionId, question, answers }) => {
   const { showAnswers } = useSelector(SelectQuestionsState);
@@ -9,7 +9,9 @@ const Section = ({ questionId, question, answers }) => {
 
   return (
     <StyledSection>
-      <h2 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(question) }} />
+      <SectionHeader
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(question) }}
+      />
       <Wrapper>
         {answers.map((answer) => (
           <Button

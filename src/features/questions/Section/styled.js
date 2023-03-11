@@ -3,15 +3,15 @@ import styled, { css } from "styled-components";
 export const StyledSection = styled.section`
   border-bottom: 1.3px solid ${({ theme }) => theme.colors.grey};
   margin-bottom: 20px;
+`;
 
-  h2 {
-    font-size: 23px;
-    font-weight: 700;
-    font-family: "Karla", sans-serif;
-    line-height: 27px;
-    margin: 0;
-    color: ${({ theme }) => theme.colors.rhino};
-  }
+export const SectionHeader = styled.h2`
+  font-size: 23px;
+  font-weight: 700;
+  font-family: "Karla", sans-serif;
+  line-height: 27px;
+  margin: 0;
+  color: ${({ theme }) => theme.colors.rhino};
 `;
 
 export const Wrapper = styled.div`

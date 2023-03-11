@@ -6,7 +6,6 @@ const Nav = () => {
   const dispatch = useDispatch();
 
   let questionsAmounts = [];
-
   for (let i = 5; i <= 15; i++) {
     questionsAmounts.push(i);
   }
