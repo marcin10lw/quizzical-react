@@ -1,11 +1,17 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, select, takeLatest } from "redux-saga/effects";
 import { getQuestions } from "./getQuestions";
-import { fetchQuestions, setQuestions, setStatus } from "./questionsSlice";
+import {
+  fetchQuestions,
+  SelectAmount,
+  setQuestions,
+  setStatus,
+} from "./questionsSlice";
 
 function* fetchQuestionsHandler() {
   try {
+    const amount = yield select(SelectAmount);
     yield put(setStatus("pending"));
-    const questions = yield call(getQuestions);
+    const questions = yield call(getQuestions, amount);
     yield put(setQuestions(questions));
     yield put(setStatus("success"));
   } catch (error) {
