@@ -2,9 +2,9 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   max-width: 800px;
-  min-height: 800px;
+  min-height: 100vh;
   width: 100%;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 0 auto;
   box-shadow: 0px 0px 13px 2px #b8b8b8;
   background-image: url(${`${process.env.PUBLIC_URL}/images/blob-top.png`}),
