@@ -12,18 +12,14 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Inter", sans-serif;
-    padding: 15px;
-    
-    @media (max-width: ${({ theme }) => theme.mobile}px) {
-      padding: 0;
-    }
   }
-
+  
   #root {
-    @media (min-width: ${({ theme }) => theme.mobile}px) {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
+    height: 100vh;
+    background-image: url(${`${process.env.PUBLIC_URL}/images/blob-top.png`}),
+    url(${`${process.env.PUBLIC_URL}/images/blob-bottom.png`});
+    background-repeat: no-repeat, no-repeat;
+    background-size: 22%, 10%;
+    background-position: top right, bottom left;
   }
 `;
