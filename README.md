@@ -1,12 +1,12 @@
 # Marcin Augun - Quizzical
 
+[![](readme-icon.png)](https://marcin10lw.github.io/quizzical-react/)
+
 ## Description
 
 Welcome to Quizzical! This project is a quiz site where you can test your general knowledge. It was developed as part of the Scrimba React Course with Bob Ziroll. It has been a great learning experience!
 
-## Check out the [Demo!](https://marcin10lw.github.io/quizzical-react/)👈
-
-[![](readme-icon.png)](https://marcin10lw.github.io/quizzical-react/)
+## Live Site URL [marcin10lw.github.io/quizzical-react](https://marcin10lw.github.io/quizzical-react/)
 
 # 💻 Project Tech Stack:
 
