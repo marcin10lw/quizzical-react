@@ -1,38 +1,35 @@
 # Marcin Augun - Quizzical
 
-## Description
-
-Today I have created a Quizzical site, where you can check your general knowledge.
-
-This project was one of many solo projects from [Scrimba](https://scrimba.com/learn/learnreact) React Course with Bob Ziroll. It was a great learning opportunity!
-
-## Check out the Demo!
-
 [![](readme-icon.png)](https://marcin10lw.github.io/quizzical-react/)
 
-## Technologies used
+## Description
 
-    -REACT.JS
-    -CREATE-REACT-APP
-    -WEBPACK
-    -BABEL
-    -STYLED COMPONENTS
-    -REDUX TOOLKIT
-    -REDUX SAGA
-    -ES6+ FEATURES
-    -NORMALIZE.CSS
-    -AXIOS.JS
+Welcome to Quizzical! This project is a quiz site where you can test your general knowledge. It was developed as part of the Scrimba React Course with Bob Ziroll. It has been a great learning experience!
 
-## Features added independently
+## Live Site URL [marcin10lw.github.io/quizzical-react](https://marcin10lw.github.io/quizzical-react/)
 
-    -REDUX TOOLKIT
-    -REDUX SAGA
-    -MOBILE DESIGN
+# 💻 Project Tech Stack:
 
-## Features added based on response status
+![react](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
+![Redux](https://img.shields.io/badge/Redux-764ABC.svg?style=for-the-badge&logo=Redux&logoColor=white)
+![Redux-saga](https://img.shields.io/badge/Redux--Saga-999999.svg?style=for-the-badge&logo=Redux-Saga&logoColor=white)
+![axios](https://img.shields.io/badge/Axios-5A29E4.svg?style=for-the-badge&logo=Axios&logoColor=white)
+![create react app](https://img.shields.io/badge/Create%20React%20App-09D3AC.svg?style=for-the-badge&logo=Create-React-App&logoColor=white)
+![styled-components](https://img.shields.io/badge/styled--components-DB7093.svg?style=for-the-badge&logo=styled-components&logoColor=white)
+![webpack](https://img.shields.io/badge/Webpack-8DD6F9.svg?style=for-the-badge&logo=Webpack&logoColor=black)
+![babel](https://img.shields.io/badge/Babel-F9DC3E.svg?style=for-the-badge&logo=Babel&logoColor=black)
+![normalize](https://img.shields.io/badge/Normalize.css-E3695F.svg?style=for-the-badge&logo=normalizedotcss&logoColor=white)
 
-    -ERROR HANDLING
-    -LOADING PAGE
+## Features
+In addition to the main functionality, I have implemented the following features independently:
+- Redux Toolkit for state management
+- Redux Saga for handling asynchronous actions
+- Mobile design for a responsive experience
+
+I have also added features based on the response status:
+
+- Error handling
+- Loading page
 
 ## Page preview
 
@@ -46,38 +43,44 @@ This project was one of many solo projects from [Scrimba](https://scrimba.com/le
 
 ![](quizzical-react-error-preview.png)
 
-## Getting Started with Create React App
+## Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run this project locally, follow these steps:
 
-## Available Scripts
+1. Clone the repository to your local machine using the following command:
 
-In the project directory, you can run:
+```bash
+git clone https://github.com/marcin10lw/quizzical-react
+```
 
-### `npm start`
+2. Navigate to the project directory:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+cd quizzical-react
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Install the project dependencies using npm or yarn:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+or
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+yarn install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the development server:
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+or
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+yarn start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Open your browser and visit http://localhost:3000 to view the website.
