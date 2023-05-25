@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components";
 
 export const StyledMain = styled.main`
-  padding: 55px 0 40px;
-  max-width: 75%;
+  padding: 40px 20px;
+  /* max-width: 75%; */
+  height: 100vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

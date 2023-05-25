@@ -49,6 +49,7 @@ export const Button = styled.button`
     css`
       border-color: #8f95b0;
       color: #8f95b0;
+      cursor: auto;
     `}
 
   ${({ showIncorrect }) =>

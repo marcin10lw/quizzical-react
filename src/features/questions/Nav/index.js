@@ -14,6 +14,7 @@ import {
   Paragraph,
 } from "./styled";
 import categoriesData from "./categories.json";
+import { Container } from "../Container/styled";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -40,32 +41,34 @@ const Nav = () => {
   };
 
   return (
-    <StyledNav>
-      <Header>Quizzical</Header>
-      <Paragraph>
-        <label>
-          <Text>Questions amount</Text>
-          <Select onChange={onAmountChange}>
-            {questionsAmounts.map((amount) => (
-              <option key={amount}>{amount}</option>
-            ))}
-          </Select>
-        </label>
-      </Paragraph>
-      <Paragraph>
-        <label>
-          <Text>Category</Text>
-          <Select onChange={onCategoryChange}>
-            {categories.map(({ id, name }) => (
-              <option key={id} value={id}>
-                {name}
-              </option>
-            ))}
-          </Select>
-        </label>
-      </Paragraph>
-      <StartButton onClick={onStartClick}>Start quiz</StartButton>
-    </StyledNav>
+    <Container>
+      <StyledNav>
+        <Header>Quizzical</Header>
+        <Paragraph>
+          <label>
+            <Text>Questions amount</Text>
+            <Select onChange={onAmountChange}>
+              {questionsAmounts.map((amount) => (
+                <option key={amount}>{amount}</option>
+              ))}
+            </Select>
+          </label>
+        </Paragraph>
+        <Paragraph>
+          <label>
+            <Text>Category</Text>
+            <Select onChange={onCategoryChange}>
+              {categories.map(({ id, name }) => (
+                <option key={id} value={id}>
+                  {name}
+                </option>
+              ))}
+            </Select>
+          </label>
+        </Paragraph>
+        <StartButton onClick={onStartClick}>Start quiz</StartButton>
+      </StyledNav>
+    </Container>
   );
 };
 
