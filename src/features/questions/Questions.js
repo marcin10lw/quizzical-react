@@ -1,5 +1,5 @@
 import { Container } from "./Container/styled";
-import Nav from "./Nav";
+import Form from "./Form";
 import Main from "./Main";
 import LoadingScreen from "./LoadingScreen";
 import ErrorScreen from "./ErrorScreen";
@@ -22,11 +22,9 @@ function App() {
     dispatch(setScore());
   }, [questions]);
 
-  const statusInfo = status === "pending" || status === "error";
-
   return (
-    <Container started={started} status={statusInfo}>
-      {!started && <Nav />}
+    <Container>
+      {!started && <Form />}
 
       {started && status === "pending" && <LoadingScreen />}
       {status === "error" && <ErrorScreen />}
