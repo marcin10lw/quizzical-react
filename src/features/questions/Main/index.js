@@ -6,7 +6,13 @@ import {
   SelectQuestionsState,
   setShowAnswers,
 } from "../questionsSlice";
-import { StyledMain, Button, Score, SummaryWrapper } from "./styled";
+import {
+  StyledMain,
+  Button,
+  Score,
+  SummaryWrapper,
+  QuestionsWrapper,
+} from "./styled";
 import Section from "../Section";
 
 const Main = ({ score }) => {
@@ -24,18 +30,18 @@ const Main = ({ score }) => {
     dispatch(setQuizStarted(false));
   };
 
-  const renderedQuestions = questions.map((question) => (
-    <Section
-      key={question.id}
-      questionId={question.id}
-      question={question.question}
-      answers={question.answers}
-    />
-  ));
-
   return (
     <StyledMain>
-      <div>{renderedQuestions}</div>
+      <QuestionsWrapper>
+        {questions.map((question) => (
+          <Section
+            key={question.id}
+            questionId={question.id}
+            question={question.question}
+            answers={question.answers}
+          />
+        ))}
+      </QuestionsWrapper>
       {!showAnswers && <Button onClick={onPlayAgain}>Check answers</Button>}
       <SummaryWrapper>
         {showAnswers && (

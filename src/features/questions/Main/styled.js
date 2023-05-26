@@ -5,9 +5,8 @@ export const StyledMain = styled.main`
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  padding: 40px 20px;
+  padding: 40px 0;
   height: 100vh;
-  overflow-y: auto;
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
@@ -33,6 +32,31 @@ export const Button = styled.button`
 
   &:hover {
     opacity: 0.9;
+  }
+`;
+
+export const QuestionsWrapper = styled.div`
+  padding: 0 20px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.7vw;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.linkWater};
+    border-radius: 6px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: ${({ theme }) => theme.colors.linkWater};
+    opacity: 0.1;
+    margin-block: 0.3em;
+    border-radius: 6px;
   }
 `;
 
