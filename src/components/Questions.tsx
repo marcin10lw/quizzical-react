@@ -12,7 +12,7 @@ import ErrorScreen from "./ErrorScreen";
 import Form from "./Form";
 import Main from "./Main";
 
-function App() {
+function Questions() {
   const { started, status } = useSelector(SelectQuestionsState);
   const { score } = useSelector(SelectQuestionsState);
   const questions = useSelector(SelectQuestions);
@@ -35,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default Questions;
