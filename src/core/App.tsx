@@ -1,4 +1,4 @@
-import { Questions } from "./features/questions/Main/styled";
+import Questions from "../components/Questions";
 
 const App = () => {
   return <Questions />;
