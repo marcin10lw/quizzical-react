@@ -3,29 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 const questionsSlice = createSlice({
   name: "questions",
   initialState: {
-    questionsData: {
-      questions: [],
-      amount: 5,
-      categoryId: 9,
-    },
+    questions: [],
     status: "",
     score: 0,
     started: false,
     showAnswers: false,
   },
   reducers: {
-    fetchQuestions: () => {},
-    setQuestions: ({ questionsData }, { payload: questions }) => {
-      questionsData.questions = questions;
-      console.log(questionsData.questions);
+    fetchQuestions: (state) => {
+      state.status = "pending";
     },
-    setAmount: ({ questionsData }, { payload: amount }) => {
-      questionsData.amount = amount;
+    fetchQuestionsSuccess: (state, { payload: questions }) => {
+      state.questions = questions;
+      state.status = "success";
     },
-    setCategoryId: ({ questionsData }, { payload: categoryId }) => {
-      questionsData.categoryId = categoryId;
-    },
-    setStatus: (state, action) => {
+    fetchQuestionsError: (state, action) => {
       state.status = action.payload;
     },
     setQuizStarted: (state, { payload }) => {
@@ -34,13 +26,13 @@ const questionsSlice = createSlice({
     setShowAnswers: (state, action) => {
       state.showAnswers = action.payload;
     },
-    selectAnswer: ({ questionsData }, action) => {
+    selectAnswer: ({ questions }, action) => {
       const { questionId, answerId } = action.payload;
-      const questionIndex = questionsData.questions.findIndex(
+      const questionIndex = questions.findIndex(
         (question) => question.id === questionId
       );
 
-      const answers = questionsData.questions[questionIndex].answers;
+      const answers = questions[questionIndex].answers;
       answers.forEach((answer) => {
         if (answer.id === answerId) {
           answer.isSelected = !answer.isSelected;
@@ -51,14 +43,14 @@ const questionsSlice = createSlice({
     },
     setScore: (state) => {
       let correctAnswers = [];
-      state.questionsData.questions.forEach((question) => {
+      state.questions.forEach((question) => {
         question.answers.forEach((answer) => {
           if (answer.isSelected && answer.isCorrect) {
             correctAnswers.push(answer);
           }
         });
       });
-      console.log(correctAnswers);
+
       state.score = correctAnswers.length;
     },
   },
@@ -66,10 +58,8 @@ const questionsSlice = createSlice({
 
 export const {
   fetchQuestions,
-  setQuestions,
-  setAmount,
-  setCategoryId,
-  setStatus,
+  fetchQuestionsSuccess,
+  fetchQuestionsError,
   setQuizStarted,
   setShowAnswers,
   selectAnswer,
@@ -77,11 +67,6 @@ export const {
 } = questionsSlice.actions;
 
 export const SelectQuestionsState = (state) => state.questions;
-export const SelectQuestions = (state) =>
-  SelectQuestionsState(state).questionsData.questions;
-export const SelectAmount = (state) =>
-  SelectQuestionsState(state).questionsData.amount;
-export const SelectCategoryId = (state) =>
-  SelectQuestionsState(state).questionsData.categoryId;
+export const SelectQuestions = (state) => SelectQuestionsState(state).questions;
 
 export default questionsSlice.reducer;

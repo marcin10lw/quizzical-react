@@ -2,22 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchQuestions,
   setQuizStarted,
-  SelectAmount,
   SelectQuestions,
   SelectQuestionsState,
   setShowAnswers,
 } from "../questionsSlice";
 import { StyledMain, Button, Score, Flex } from "./styled";
 import Section from "../Section";
-import { useRef } from "react";
 
 const Main = ({ score }) => {
-  const mainRef = useRef(null);
-
   const { showAnswers } = useSelector(SelectQuestionsState);
   const questions = useSelector(SelectQuestions);
-  const questionsAmount = useSelector(SelectAmount);
-
+  const questionsAmount = questions.length;
   const dispatch = useDispatch();
 
   const onCheckAnswers = () => {
@@ -25,7 +20,6 @@ const Main = ({ score }) => {
   };
 
   const playAgain = () => {
-    mainRef.current.scrollIntoView();
     dispatch(setShowAnswers(false));
     dispatch(fetchQuestions());
   };
@@ -45,14 +39,10 @@ const Main = ({ score }) => {
   ));
 
   return (
-    <StyledMain ref={mainRef}>
+    <StyledMain>
       <div>{renderedQuestions}</div>
 
-      {!showAnswers && (
-        <Button as="a" href="#score" onClick={onCheckAnswers}>
-          Check answers
-        </Button>
-      )}
+      {!showAnswers && <Button onClick={onCheckAnswers}>Check answers</Button>}
 
       <Flex>
         {showAnswers && (

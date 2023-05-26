@@ -1,7 +1,7 @@
 import { nanoid } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getQuestions = async (amount = 5, categoryId = 9) => {
+export const getQuestions = async (amount, categoryId) => {
   const response = await axios.get(
     `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}`
   );

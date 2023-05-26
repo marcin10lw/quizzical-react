@@ -1,22 +1,14 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  fetchQuestions,
-  setAmount,
-  setCategoryId,
-  setQuizStarted,
-} from "../questionsSlice";
-import {
-  StyledForm,
-  Header,
-  StartButton,
-  Select,
-  Text,
-  InputGroup,
-} from "./styled";
+import { fetchQuestions, setQuizStarted } from "../questionsSlice";
+
 import { categories } from "./categories";
 import { Container } from "../Container/styled";
+import { StyledForm, Header, StartButton, Select, InputGroup } from "./styled";
 
 const Form = () => {
+  const [questionsAmount, setQuestionsAmount] = useState(5);
+  const [categoryId, setCategoryId] = useState(9);
   const dispatch = useDispatch();
 
   let questionsAmounts = [];
@@ -24,26 +16,23 @@ const Form = () => {
     questionsAmounts.push(i);
   }
 
-  const onAmountChange = ({ target }) => {
-    dispatch(setAmount(target.value));
-  };
+  const onStartQuiz = (event) => {
+    event.preventDefault();
 
-  const onCategoryChange = ({ target }) => {
-    dispatch(setCategoryId(target.value));
-  };
-
-  const onStartClick = () => {
     dispatch(setQuizStarted(true));
-    dispatch(fetchQuestions());
+    dispatch(fetchQuestions({ amount: questionsAmount, categoryId }));
   };
 
   return (
     <Container>
-      <StyledForm>
+      <StyledForm onSubmit={onStartQuiz}>
         <Header>Quizzical</Header>
         <InputGroup>
           <label htmlFor="amount">Questions amount</label>
-          <Select id="amount" onChange={onAmountChange}>
+          <Select
+            id="amount"
+            onChange={({ target }) => setQuestionsAmount(target.value)}
+          >
             {questionsAmounts.map((amount) => (
               <option key={amount}>{amount}</option>
             ))}
@@ -51,7 +40,10 @@ const Form = () => {
         </InputGroup>
         <InputGroup>
           <label htmlFor="category">Category</label>
-          <Select id="category" onChange={onCategoryChange}>
+          <Select
+            id="category"
+            onChange={({ target }) => setCategoryId(target.value)}
+          >
             {categories.map(({ id, name }) => (
               <option key={id} value={id}>
                 {name}
@@ -59,7 +51,7 @@ const Form = () => {
             ))}
           </Select>
         </InputGroup>
-        <StartButton onClick={onStartClick}>Start quiz</StartButton>
+        <StartButton>Start quiz</StartButton>
       </StyledForm>
     </Container>
   );
