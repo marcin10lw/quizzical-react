@@ -1,12 +1,19 @@
 import DOMPurify from "dompurify";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  Answer,
   selectAnswer,
   SelectQuestionsState,
 } from "../../../store/questionsSlice";
 import { StyledSection, SectionHeader, Wrapper, Button } from "./styled";
 
-const Section = ({ questionId, question, answers }) => {
+type SectionProps = {
+  questionId: string;
+  question: string;
+  answers: Answer[];
+};
+
+const Section = ({ questionId, question, answers }: SectionProps) => {
   const { showAnswers } = useSelector(SelectQuestionsState);
   const dispatch = useDispatch();
 

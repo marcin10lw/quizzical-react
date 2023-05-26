@@ -24,7 +24,13 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Button = styled.button`
+type ButtonProps = {
+  isSelected: boolean;
+  showIncorrect: boolean;
+  showCorrect: boolean;
+};
+
+export const Button = styled.button<ButtonProps>`
   color: ${({ theme }) => theme.colors.rhino};
   border: 1.9px solid ${({ theme }) => theme.colors.kashmirBlue};
   border-width: 1.9px;
