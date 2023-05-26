@@ -1,6 +1,13 @@
 import { nanoid } from "nanoid";
 
-export const formatApiResponse = (results) => {
+type Result = {
+  category: string;
+  correct_answer: string;
+  incorrect_answers: string[];
+  question: string;
+};
+
+export const formatApiResponse = (results: Result[]) => {
   return results.map((result) => {
     const correctAnswer = {
       answer: result.correct_answer,
