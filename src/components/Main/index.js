@@ -4,7 +4,7 @@ import {
   SelectQuestions,
   SelectQuestionsState,
   setShowAnswers,
-} from "../questionsSlice";
+} from "../../store/questionsSlice";
 
 import {
   StyledMain,

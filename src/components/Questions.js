@@ -4,7 +4,7 @@ import {
   SelectQuestions,
   SelectQuestionsState,
   setScore,
-} from "./questionsSlice";
+} from "../store/questionsSlice";
 
 import { Container } from "./Container/styled";
 import LoadingScreen from "./LoadingScreen";

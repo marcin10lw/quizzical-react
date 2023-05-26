@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import questionsReducer from "./features/questions/questionsSlice";
+import questionsReducer from "../store/questionsSlice";
 import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "./rootSaga";
 

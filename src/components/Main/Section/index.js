@@ -1,6 +1,9 @@
 import DOMPurify from "dompurify";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAnswer, SelectQuestionsState } from "../../questionsSlice";
+import {
+  selectAnswer,
+  SelectQuestionsState,
+} from "../../../store/questionsSlice";
 import { StyledSection, SectionHeader, Wrapper, Button } from "./styled";
 
 const Section = ({ questionId, question, answers }) => {

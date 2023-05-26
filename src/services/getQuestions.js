@@ -1,5 +1,5 @@
 import axios from "axios";
-import { formatApiResponse } from "./formatApiResponse";
+import { formatApiResponse } from "../utils/formatApiResponse";
 
 export const getQuestions = async (amount, categoryId) => {
   const { data } = await axios.get(`https://opentdb.com/api.php`, {

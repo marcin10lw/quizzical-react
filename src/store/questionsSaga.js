@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { getQuestions } from "./getQuestions";
+import { getQuestions } from "../services/getQuestions";
 import {
   fetchQuestions,
   fetchQuestionsSuccess,

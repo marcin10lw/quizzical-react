@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchQuestions, setQuizStarted } from "../questionsSlice";
+import { fetchQuestions, setQuizStarted } from "../../store/questionsSlice";
 
-import { categories } from "./categories";
+import { categories } from "../../data/categories";
 import { Container } from "../Container/styled";
 import { StyledForm, Header, StartButton, Select, InputGroup } from "./styled";
 
