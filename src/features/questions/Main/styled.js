@@ -51,13 +51,6 @@ export const QuestionsWrapper = styled.div`
       opacity: 0.8;
     }
   }
-
-  &::-webkit-scrollbar-track {
-    background-color: ${({ theme }) => theme.colors.linkWater};
-    opacity: 0.1;
-    margin-block: 0.3em;
-    border-radius: 6px;
-  }
 `;
 
 export const SummaryWrapper = styled.div`
