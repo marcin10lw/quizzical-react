@@ -1,24 +1,46 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../core/store";
+
+export type Answer = {
+  answer: string;
+  id: string;
+  isCorrect: boolean;
+  isSelected: boolean;
+};
+
+export type Question = {
+  answers: Answer[];
+  id: string;
+  question: string;
+};
+
+type SliceState = {
+  questions: Question[];
+  status: "pending" | "success" | "error" | "idle";
+  score: number;
+  started: boolean;
+  showAnswers: boolean;
+};
 
 const questionsSlice = createSlice({
   name: "questions",
   initialState: {
     questions: [],
-    status: "",
+    status: "idle",
     score: 0,
     started: false,
     showAnswers: false,
-  },
+  } as SliceState,
   reducers: {
-    fetchQuestions: (state) => {
+    fetchQuestions: (state, { payload }) => {
       state.status = "pending";
     },
     fetchQuestionsSuccess: (state, { payload: questions }) => {
       state.questions = questions;
       state.status = "success";
     },
-    fetchQuestionsError: (state, action) => {
-      state.status = action.payload;
+    fetchQuestionsError: (state) => {
+      state.status = "error";
     },
     setQuizStarted: (state, { payload }) => {
       state.started = payload;
@@ -66,7 +88,8 @@ export const {
   setScore,
 } = questionsSlice.actions;
 
-export const SelectQuestionsState = (state) => state.questions;
-export const SelectQuestions = (state) => SelectQuestionsState(state).questions;
+export const SelectQuestionsState = (state: RootState) => state.questions;
+export const SelectQuestions = (state: RootState) =>
+  SelectQuestionsState(state).questions;
 
 export default questionsSlice.reducer;
