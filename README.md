@@ -11,6 +11,7 @@ Welcome to Quizzical! This project is a quiz site where you can test your genera
 # 💻 Project Tech Stack:
 
 ![react](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
+![typescript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white)
 ![Redux](https://img.shields.io/badge/Redux-764ABC.svg?style=for-the-badge&logo=Redux&logoColor=white)
 ![Redux-saga](https://img.shields.io/badge/Redux--Saga-999999.svg?style=for-the-badge&logo=Redux-Saga&logoColor=white)
 ![axios](https://img.shields.io/badge/Axios-5A29E4.svg?style=for-the-badge&logo=Axios&logoColor=white)
@@ -21,7 +22,9 @@ Welcome to Quizzical! This project is a quiz site where you can test your genera
 ![normalize](https://img.shields.io/badge/Normalize.css-E3695F.svg?style=for-the-badge&logo=normalizedotcss&logoColor=white)
 
 ## Features
+
 In addition to the main functionality, I have implemented the following features independently:
+
 - Redux Toolkit for state management
 - Redux Saga for handling asynchronous actions
 - Mobile design for a responsive experience
