@@ -6,7 +6,7 @@ import {
   SelectQuestionsState,
   setShowAnswers,
 } from "../questionsSlice";
-import { StyledMain, Button, Score, Flex } from "./styled";
+import { StyledMain, Button, Score, SummaryWrapper } from "./styled";
 import Section from "../Section";
 
 const Main = ({ score }) => {
@@ -15,13 +15,8 @@ const Main = ({ score }) => {
   const questionsAmount = questions.length;
   const dispatch = useDispatch();
 
-  const onCheckAnswers = () => {
+  const onPlayAgain = () => {
     dispatch(setShowAnswers(true));
-  };
-
-  const playAgain = () => {
-    dispatch(setShowAnswers(false));
-    dispatch(fetchQuestions());
   };
 
   const goBackToSettings = () => {
@@ -41,27 +36,21 @@ const Main = ({ score }) => {
   return (
     <StyledMain>
       <div>{renderedQuestions}</div>
-
-      {!showAnswers && <Button onClick={onCheckAnswers}>Check answers</Button>}
-
-      <Flex>
+      {!showAnswers && <Button onClick={onPlayAgain}>Check answers</Button>}
+      <SummaryWrapper>
         {showAnswers && (
-          <Score id="score">
+          <Score>
             You scored {score}/{questionsAmount} correct answers 🚀
           </Score>
         )}
-
         {showAnswers && (
           <>
-            <Button playAgain onClick={playAgain}>
-              Play again with same settings
-            </Button>
             <Button playAgain onClick={goBackToSettings}>
-              Go back to settings
+              Play Again
             </Button>
           </>
         )}
-      </Flex>
+      </SummaryWrapper>
     </StyledMain>
   );
 };

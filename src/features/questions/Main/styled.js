@@ -1,14 +1,14 @@
 import styled, { css } from "styled-components";
 
 export const StyledMain = styled.main`
-  padding: 40px 20px;
-  /* max-width: 75%; */
-  height: 100vh;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  padding: 40px 20px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Button = styled.button`
@@ -36,7 +36,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Flex = styled.div`
+export const SummaryWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
