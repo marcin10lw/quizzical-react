@@ -10,7 +10,11 @@ export const StyledMain = styled.main`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
-export const Button = styled.button`
+type ButtonProps = {
+  playAgain?: boolean;
+};
+
+export const Button = styled.button<ButtonProps>`
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;

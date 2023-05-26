@@ -15,7 +15,11 @@ import {
 } from "./styled";
 import Section from "./Section";
 
-const Main = ({ score }) => {
+type MainProps = {
+  score: number;
+};
+
+const Main = ({ score }: MainProps) => {
   const { showAnswers } = useSelector(SelectQuestionsState);
   const questions = useSelector(SelectQuestions);
   const questionsAmount = questions.length;
