@@ -1,37 +1,11 @@
-import { nanoid } from "@reduxjs/toolkit";
 import axios from "axios";
+import { formatApiResponse } from "./formatApiResponse";
 
 export const getQuestions = async (amount, categoryId) => {
-  const response = await axios.get(
-    `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}`
-  );
-  const results = await response.data.results;
-
-  const questions = await results.map((result) => {
-    const correctAnswer = {
-      answer: result.correct_answer,
-      id: nanoid(),
-      isCorrect: true,
-      isSelected: false,
-    };
-
-    const incorrectAnswers = result.incorrect_answers.map((incorrectAnswer) => {
-      return {
-        answer: incorrectAnswer,
-        id: nanoid(),
-        isCorrect: false,
-        isSelected: false,
-      };
-    });
-
-    const allAnswers = [correctAnswer, ...incorrectAnswers];
-
-    return {
-      question: result.question,
-      id: nanoid(),
-      answers: allAnswers.sort((a, b) => 0.5 - Math.random()),
-    };
+  const { data } = await axios.get(`https://opentdb.com/api.php`, {
+    params: { amount, category: categoryId },
   });
+  const results = await data.results;
 
-  return await questions;
+  return formatApiResponse(results);
 };

@@ -1,15 +1,16 @@
-import { Container } from "./Container/styled";
-import Form from "./Form";
-import Main from "./Main";
-import LoadingScreen from "./LoadingScreen";
-import ErrorScreen from "./ErrorScreen";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   SelectQuestions,
   SelectQuestionsState,
   setScore,
 } from "./questionsSlice";
-import { useEffect } from "react";
+
+import { Container } from "./Container/styled";
+import LoadingScreen from "./LoadingScreen";
+import ErrorScreen from "./ErrorScreen";
+import Form from "./Form";
+import Main from "./Main";
 
 function App() {
   const { started, status } = useSelector(SelectQuestionsState);

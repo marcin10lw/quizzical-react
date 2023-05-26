@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchQuestions,
   setQuizStarted,
   SelectQuestions,
   SelectQuestionsState,
   setShowAnswers,
 } from "../questionsSlice";
+
 import {
   StyledMain,
   Button,
