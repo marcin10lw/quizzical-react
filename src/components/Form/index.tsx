@@ -16,7 +16,7 @@ const Form = () => {
     questionsAmounts.push(i);
   }
 
-  const onStartQuiz = (event) => {
+  const onStartQuiz = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     dispatch(setQuizStarted(true));
@@ -31,10 +31,12 @@ const Form = () => {
           <label htmlFor="amount">Questions amount</label>
           <Select
             id="amount"
-            onChange={({ target }) => setQuestionsAmount(target.value)}
+            onChange={({ target }) => setQuestionsAmount(Number(target.value))}
           >
             {questionsAmounts.map((amount) => (
-              <option key={amount}>{amount}</option>
+              <option value={amount} key={amount}>
+                {amount}
+              </option>
             ))}
           </Select>
         </InputGroup>
@@ -42,7 +44,7 @@ const Form = () => {
           <label htmlFor="category">Category</label>
           <Select
             id="category"
-            onChange={({ target }) => setCategoryId(target.value)}
+            onChange={({ target }) => setCategoryId(Number(target.value))}
           >
             {categories.map(({ id, name }) => (
               <option key={id} value={id}>
